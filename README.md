@@ -35,6 +35,6 @@ change   include_directories(the_directory_of_openblas_include_of_yours)
 change   link_directories(the_directory_of_openblas_lib_of_yours)  
 save and exit
 
-cmake .
-make
+cmake .   
+make   
 ./main
