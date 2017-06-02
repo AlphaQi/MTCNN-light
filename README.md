@@ -15,7 +15,8 @@ os    ubuntu14.04   64bit
 opencv  2.0+  
 openblas  
 
-### opencv install 
+##ubuntu   
+### opencv    
 you can find many tutorials.
 
 ### openblas
@@ -37,4 +38,9 @@ save and exit
 
 cmake .   
 make   
-./main
+./main   
+##for windows
+###opencv and openblas   
+there is binary packages of openblas for windows, you just need download it   
+But you should to be careful, if you download the 64bit ,you need configure    
+the opencv and vs project environment with 64bit, don't choose x86
