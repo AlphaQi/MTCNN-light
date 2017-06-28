@@ -488,15 +488,19 @@ mtcnn::mtcnn(int row, int col){
         minl *= factor;
         factor_count++;
     }
-    float maxside = row>col ? row : col;
-    if ((*(--scales_.end()))*maxside < (MIN_DET_SIZE+1)){
-        int a = 20;
-        while (a--)
-        {
-            cout << "the minsize is too small,please change it." << endl;
-        }
-        while (1);
-    }
+    float minside = row<col ? row : col;
+	int count = 0;
+	for (vector<float>::iterator it = scales_.begin(); it != scales_.end(); it++){
+		if (*it > 1){
+			cout << "the minsize is too small" << endl;
+			while (1);
+		}
+		if (*it < (MIN_DET_SIZE / minside)){
+			scales_.resize(count);
+			break;
+		}
+		count++;
+	}
     simpleFace_ = new Pnet[scales_.size()];
 }
 
