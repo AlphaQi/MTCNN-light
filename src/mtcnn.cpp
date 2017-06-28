@@ -488,6 +488,16 @@ mtcnn::mtcnn(int row, int col){
         minl *= factor;
         factor_count++;
     }
+    float maxside = row>col ? row : col;
+	if ((*(--scales_.end()))*maxside < (MIN_DET_SIZE+1))
+	{
+		int a = 20;
+		while (a--)
+		{
+			cout << "the minsize is too small,please change it." << endl;
+		}
+		while (1);
+	}
     simpleFace_ = new Pnet[scales_.size()];
 }
 
